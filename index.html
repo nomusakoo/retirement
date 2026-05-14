@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>퇴직자 안내 | NH농우바이오</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-dark: #1a5c2e;
+    --green-mid: #2e7d4f;
+    --green-light: #4caf75;
+    --green-pale: #e8f5ee;
+    --green-ultra: #f2faf5;
+    --gold: #c8973a;
+    --gold-light: #fdf3e3;
+    --text-main: #1a2b1e;
+    --text-sub: #4a6355;
+    --text-muted: #7a9489;
+    --border: #d0e6d8;
+    --white: #ffffff;
+    --radius: 12px;
+  }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--green-ultra);
+    color: var(--text-main);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* HEADER */
+  .site-header {
+    background: var(--white);
+    border-bottom: 2px solid var(--green-pale);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .logo-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+
+  .logo-nh {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .logo-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--green-dark);
+    letter-spacing: -0.02em;
+  }
+
+  .header-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--border);
+    margin: 0 8px;
+  }
+
+  .header-title {
+    font-size: 15px;
+    color: var(--text-sub);
+    font-weight: 400;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 60%, #3a8f60 100%);
+    padding: 64px 40px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -30px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.9);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 14px;
+    letter-spacing: -0.03em;
+  }
+
+  .hero p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  /* CONTENT WRAPPER */
+  .content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* SECTION */
+  .section {
+    margin-bottom: 40px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--green-dark);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--green-dark);
+    letter-spacing: -0.02em;
+  }
+
+  /* CARD */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 16px;
+  }
+
+  .card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--green-mid);
+    letter-spacing: 0.02em;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .card-title::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 14px;
+    background: var(--green-light);
+    border-radius: 2px;
+  }
+
+  /* TABLE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  th {
+    background: var(--green-pale);
+    color: var(--green-dark);
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+    font-size: 13px;
+  }
+
+  td {
+    padding: 11px 14px;
+    border-bottom: 1px solid #eef4f0;
+    color: var(--text-main);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fafcfb; }
+
+  /* CHECKLIST */
+  .checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-main);
+    line-height: 1.6;
+  }
+
+  .check-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--green-pale);
+    border: 1.5px solid var(--green-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .check-icon svg {
+    width: 10px;
+    height: 10px;
+    stroke: var(--green-mid);
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* NOTICE BOX */
+  .notice {
+    background: var(--gold-light);
+    border: 1px solid #e5c882;
+    border-left: 4px solid var(--gold);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: #5c4010;
+    line-height: 1.7;
+  }
+
+  .notice strong { color: #7a5012; }
+
+  /* INFO BOX */
+  .info-box {
+    background: #eef7ff;
+    border: 1px solid #b8d9f5;
+    border-left: 4px solid #4a9ede;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: #1a3e5c;
+    line-height: 1.7;
+  }
+
+  /* STEP FLOW */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step-item {
+    display: flex;
+    gap: 16px;
+    position: relative;
+    padding-bottom: 24px;
+  }
+
+  .step-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .step-item:last-child .step-line {
+    display: none;
+  }
+
+  .step-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 32px;
+  }
+
+  .step-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--green-dark);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-line {
+    width: 2px;
+    flex: 1;
+    background: var(--border);
+    margin-top: 4px;
+  }
+
+  .step-content {
+    flex: 1;
+    padding-top: 5px;
+  }
+
+  .step-content h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--green-dark);
+    margin-bottom: 4px;
+  }
+
+  .step-content p {
+    font-size: 13px;
+    color: var(--text-sub);
+    line-height: 1.6;
+  }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+  }
+
+  .contact-card {
+    background: var(--green-pale);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    text-align: center;
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--green-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+  }
+
+  .contact-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .contact-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+
+  .contact-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--green-dark);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--green-dark);
+    color: rgba(255,255,255,0.65);
+    text-align: center;
+    padding: 28px 24px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  footer strong {
+    color: rgba(255,255,255,0.9);
+  }
+
+  .footer-logo {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  /* TAG */
+  .tag {
+    display: inline-block;
+    background: var(--green-pale);
+    color: var(--green-dark);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 9px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    margin-right: 4px;
+  }
+
+  .tag-gold {
+    background: var(--gold-light);
+    color: #7a5012;
+    border-color: #e5c882;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 36px 0;
+  }
+
+  /* HIGHLIGHT ROW */
+  .highlight-row td { background: var(--green-ultra); font-weight: 500; }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 16px 20px; }
+    .hero { padding: 44px 20px 40px; }
+    .hero h1 { font-size: 26px; }
+    .content { padding: 32px 16px 60px; }
+    .card { padding: 18px 18px; }
+    th, td { padding: 9px 10px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="logo-wrap">
+    <!-- NH농우바이오 로고 (SVG 인라인) -->
+    <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="48" height="48" rx="10" fill="#1a5c2e"/>
+      <!-- 잎사귀 심볼 -->
+      <ellipse cx="24" cy="26" rx="9" ry="12" fill="#4caf75" transform="rotate(-15 24 26)"/>
+      <ellipse cx="24" cy="26" rx="9" ry="12" fill="#2e7d4f" transform="rotate(15 24 26)" opacity="0.8"/>
+      <ellipse cx="24" cy="24" rx="5" ry="9" fill="#a8e6bf" opacity="0.6" transform="rotate(0 24 24)"/>
+      <line x1="24" y1="38" x2="24" y2="28" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- NH 텍스트 -->
+      <text x="24" y="16" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="800" fill="#ffffff" letter-spacing="1">NH</text>
+    </svg>
+    <div class="logo-text">
+      <span class="logo-nh">NH NongWoo Bio</span>
+      <span class="logo-name">농우바이오</span>
+    </div>
+  </div>
+  <div class="header-divider"></div>
+  <span class="header-title">퇴직자 안내</span>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">RETIREMENT GUIDE</div>
+  <h1>퇴직자 안내 가이드</h1>
+  <p>퇴직에 앞서 꼭 확인하셔야 할 절차와 유의사항을 안내드립니다.<br>궁금한 사항은 인사노무팀으로 문의해 주시기 바랍니다.</p>
+</section>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- 1. 퇴직 처리 일정 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2 class="section-title">퇴직 처리 일정 및 절차</h2>
+    </div>
+    <div class="card">
+      <div class="steps">
+        <div class="step-item">
+          <div class="step-left">
+            <div class="step-dot">①</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <h4>퇴직 의사 통보</h4>
+            <p>퇴직 희망일 <strong>30일 전</strong>까지 직속 상급자에게 서면 통보하고 인사노무팀에 퇴직원을 제출합니다.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-left">
+            <div class="step-dot">②</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <h4>업무 인수인계</h4>
+            <p>퇴직 전까지 담당 업무의 인수인계서를 작성하고 후임자 또는 상급자에게 인계를 완료합니다.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-left">
+            <div class="step-dot">③</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <h4>회사 자산 반납</h4>
+            <p>사원증, 출입카드, 법인카드, 노트북 등 회사 지급품 일체를 반납합니다.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-left">
+            <div class="step-dot">④</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <h4>최종 급여 정산</h4>
+            <p>퇴직 해당 월 급여 지급일에 지급</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-left">
+            <div class="step-dot">⑤</div>
+          </div>
+          <div class="step-content">
+            <h4>퇴직 관련 서류 수령</h4>
+            <p>경력증명서, 퇴직증명서 등 필요 서류는 인사노무팀에 별도 신청하여 수령합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 반납 물품 체크리스트 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2 class="section-title">반납 물품 체크리스트</h2>
+    </div>
+    <div class="card">
+      <div class="card-title">퇴직 전 반드시 반납해야 할 항목</div>
+      <ul class="checklist">
+        <li>
+          <div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <span><span class="tag">필수</span> 사원증 / 출입카드 (전부)</span>
+        </li>
+        <li>
+          <div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <span><span class="tag">필수</span> 노트북 / 업무용 PC 및 주변기기</span>
+        </li>
+        <li>
+          <div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <span><span class="tag">해당 시</span> 법인 신용카드 — 정산 완료 후 반납</span>
+        </li>
+        <li>
+          <div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <span><span class="tag">해당 시</span> 업무용 차량 (차량키, 등록증, 하이패스 단말기)</span>
+        </li>
+        <li>
+          <div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <span><span class="tag">해당 시</span> 회사 지급 휴대폰 / 태블릿</span>
+        </li>
+        <li>
+          <div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <span><span class="tag">필수</span> 회사 기밀문서 및 내부 자료 일체 (사본 포함)</span>
+        </li>
+        <li>
+          <div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <span><span class="tag">해당 시</span> 개인 로커 정리 및 열쇠 반납</span>
+        </li>
+      </ul>
+    </div>
+    <div class="notice">
+      <strong>⚠ 주의:</strong> 회사 자산을 미반납하거나 기밀 자료를 외부로 유출할 경우 법적 책임이 발생할 수 있습니다. 반납 시 담당자의 확인 서명을 받아 보관하시기 바랍니다.
+    </div>
+  </section>
+
+  <!-- 3. 퇴직금 및 급여 정산 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2 class="section-title">퇴직금 및 급여 정산 안내</h2>
+    </div>
+    <div class="card">
+      <div class="card-title">정산 항목 요약</div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:30%">항목</th>
+            <th>내용</th>
+            <th style="width:25%">지급 시기</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tag">미지급 급여</span></td>
+            <td>퇴직월 근무일수에 따른 일할 계산 지급</td>
+            <td>익월 정기 급여일</td>
+          </tr>
+          <tr>
+            <td><span class="tag">연차수당</span></td>
+            <td>미사용 연차 잔여분을 수당으로 정산</td>
+            <td>퇴직일로부터 14일 이내</td>
+          </tr>
+          <tr>
+            <td><span class="tag">퇴직연금</span></td>
+            <td>DC/DB형 가입 여부에 따라 개인 IRP 계좌로 이전</td>
+            <td>퇴직금 지급처리상황에 따라 퇴직 후 30일 이후에 지급될 수 있습니다.</td>
+          </tr>
+          <tr>
+            <td><span class="tag">경조금·복지포인트</span></td>
+            <td>퇴직일 기준 미사용분 소멸 (환불 불가)</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="info-box">
+      <strong>📌 IRP 계좌 안내:</strong> 퇴직연금(DC형)을 수령하시려면 개인 IRP(개인형 퇴직연금) 계좌가 필요합니다. 아직 개설하지 않으신 경우 금융기관에 미리 개설하시고 계좌번호를 인사노무팀에 제출해 주시기 바랍니다.
+    </div>
+  </section>
+
+  <!-- 4. 4대보험 상실 안내 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2 class="section-title">4대보험 상실 신고 안내</h2>
+    </div>
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>보험 종류</th>
+            <th>처리 내용</th>
+            <th style="width:28%">퇴직 후 조치</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>국민연금</strong></td>
+            <td>퇴직일로부터 상실 처리 (회사 신고)</td>
+            <td>임의계속가입 또는 지역가입자 전환</td>
+          </tr>
+          <tr>
+            <td><strong>건강보험</strong></td>
+            <td>퇴직일 다음 날부터 피보험자 자격 상실</td>
+            <td>지역가입자 전환 또는 임의계속가입 신청</td>
+          </tr>
+          <tr>
+            <td><strong>고용보험</strong></td>
+            <td>퇴직 사유에 따라 실업급여 수급 가능</td>
+            <td>고용센터 방문 신청 (퇴직 후 12개월 이내)</td>
+          </tr>
+          <tr>
+            <td><strong>산재보험</strong></td>
+            <td>퇴직과 동시에 자동 상실</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="notice">
+      <strong>💡 건강보험 임의계속가입:</strong> 퇴직 후 최대 36개월간 직장가입자 자격을 유지할 수 있습니다. 퇴직 후 <strong>2개월 이내</strong>에 국민건강보험공단(☎ 1577-1000)에 신청하시기 바랍니다.
+    </div>
+  </section>
+
+  <!-- 5. 실업급여 안내 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2 class="section-title">실업급여 수급 안내</h2>
+    </div>
+    <div class="card">
+      <div class="card-title">수급 요건</div>
+      <ul class="checklist">
+        <li>
+          <div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <span>이직일 이전 18개월 이내 고용보험 피보험 기간이 <strong>180일 이상</strong>인 경우</span>
+        </li>
+        <li>
+          <div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <span>비자발적 퇴직(권고사직, 계약만료, 정리해고 등) 또는 정당한 사유에 의한 자진 퇴직</span>
+        </li>
+        <li>
+          <div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <span>적극적으로 재취업 활동을 하고 있음에도 취업하지 못한 상태</span>
+        </li>
+      </ul>
+    </div>
+    <div class="card" style="margin-top:12px;">
+      <div class="card-title">신청 방법</div>
+      <table>
+        <thead>
+          <tr>
+            <th>단계</th>
+            <th>내용</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tag">1단계</span></td>
+            <td>워크넷(www.work.go.kr) 구직 등록</td>
+          </tr>
+          <tr>
+            <td><span class="tag">2단계</span></td>
+            <td>고용보험(www.ei.go.kr) 수급자격 신청자 온라인 교육 이수</td>
+          </tr>
+          <tr>
+            <td><span class="tag">3단계</span></td>
+            <td>거주지 관할 고용센터 방문하여 수급자격 인정 신청</td>
+          </tr>
+          <tr>
+            <td><span class="tag">4단계</span></td>
+            <td>실업 인정 신청 (1~4주 주기로 고용센터 방문 또는 온라인 신청)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 6. 개인정보 및 보안 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2 class="section-title">개인정보 및 보안 유의사항</h2>
+    </div>
+    <div class="card">
+      <ul class="checklist">
+        <li>
+          <div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <span>퇴직 후 회사 내부 시스템(그룹웨어, ERP, 이메일 등)에 대한 접근은 <strong>즉시 차단</strong>됩니다.</span>
+        </li>
+        <li>
+          <div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <span>재직 중 취득한 <strong>회사 기밀·영업 비밀</strong>은 퇴직 후에도 외부 공개 및 유출이 금지됩니다.</span>
+        </li>
+        <li>
+          <div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <span>개인 이메일, 외장 저장장치, 클라우드 등으로 업무 자료를 이전하는 행위는 보안 위반에 해당합니다.</span>
+        </li>
+        <li>
+          <div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <span>입사 시 서약한 <strong>비밀유지서약</strong>은 퇴직 후에도 유효하게 적용됩니다.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 7. 발급 가능 서류 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <h2 class="section-title">퇴직 후 발급 가능 서류</h2>
+    </div>
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>서류명</th>
+            <th>신청 방법</th>
+            <th style="width:22%">처리 기간</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>경력증명서</strong></td>
+            <td>인사노무팀 이메일 또는 유선 신청</td>
+            <td>2~3 영업일</td>
+          </tr>
+          <tr>
+            <td><strong>원천징수영수증</strong></td>
+            <td>인사노무팀 이메일 신청</td>
+            <td>3~5 영업일</td>
+          </tr>
+          <tr>
+            <td><strong>건강보험 자격상실 확인서</strong></td>
+            <td>국민건강보험공단 직접 발급</td>
+            <td>즉시</td>
+          </tr>
+          <tr>
+            <td><strong>고용보험 이직확인서</strong></td>
+            <td>회사 직권 신고</td>
+            <td>퇴직 후 10일 이내</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 담당 부서 연락처 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--gold);">📞</div>
+      <h2 class="section-title">담당 부서 연락처</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.06 4.18 2 2 0 015.07 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div class="contact-label">대표 전화</div>
+        <div class="contact-value">031-218-1121~3</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+        </div>
+        <div class="contact-label">업무 시간</div>
+        <div class="contact-value" style="font-size:13px;">09:00 ~ 18:00</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <svg width="22" height="22" viewBox="0 0 48 48" fill="none">
+      <ellipse cx="24" cy="26" rx="9" ry="12" fill="#4caf75" transform="rotate(-15 24 26)"/>
+      <ellipse cx="24" cy="26" rx="9" ry="12" fill="#2e7d4f" transform="rotate(15 24 26)" opacity="0.8"/>
+    </svg>
+    NH농우바이오
+  </div>
+  <strong>NH농우바이오 경영지원본부 인사노무팀</strong><br>
+  경기도 수원시 영통구 센트럴타운로 114-8 NH농우바이오 | 대표전화 031-218-1121~3<br>
+  <br>
+  본 안내문의 내용은 관련 법령 및 사내 규정에 따라 변경될 수 있습니다.<br>
+  문의사항은 인사노무팀으로 연락해 주시기 바랍니다.<br>
+  <br>
+  <span style="font-size:12px; opacity:0.5;">© 2026 NH NongWoo Bio Co., Ltd. All rights reserved.</span>
+</footer>
+
+</body>
+</html>
